@@ -1,7 +1,7 @@
 name: 🐛 Bug Report
 description: Report a bug in the Q-Ants application
-title: "🐛 [Bug]: "
-labels: ["bug", "needs-triage"]
+title: '🐛 [Bug]: '
+labels: ['bug', 'needs-triage']
 assignees:
   - estebanmarinramirez
 
@@ -10,9 +10,9 @@ body:
     attributes:
       value: |
         ## Thanks for taking the time to report a bug! 🐜
-        
+
         Please fill out the sections below to help us understand and reproduce the issue.
-        
+
   - type: checkboxes
     id: existing-issues
     attributes:
@@ -21,7 +21,7 @@ body:
       options:
         - label: I have searched existing issues
           required: true
-        
+
   - type: dropdown
     id: component
     attributes:
@@ -39,7 +39,7 @@ body:
         - Other
     validations:
       required: true
-      
+
   - type: textarea
     id: description
     attributes:
@@ -48,7 +48,7 @@ body:
       placeholder: Describe what happened...
     validations:
       required: true
-      
+
   - type: textarea
     id: reproduction
     attributes:
@@ -61,7 +61,7 @@ body:
         4. See error
     validations:
       required: true
-      
+
   - type: textarea
     id: expected
     attributes:
@@ -70,7 +70,7 @@ body:
       placeholder: Describe the expected behavior...
     validations:
       required: true
-      
+
   - type: textarea
     id: actual
     attributes:
@@ -79,7 +79,7 @@ body:
       placeholder: Describe what actually happened...
     validations:
       required: true
-      
+
   - type: textarea
     id: environment
     attributes:
@@ -94,20 +94,20 @@ body:
       render: markdown
     validations:
       required: true
-      
+
   - type: textarea
     id: screenshots
     attributes:
       label: Screenshots/Console Logs
       description: If applicable, add screenshots or console error logs
       placeholder: Paste screenshots or error logs here...
-      
+
   - type: checkboxes
     id: urgency
     attributes:
       label: Urgency Level
       options:
         - label: 🔥 Critical (Application breaks/security issue)
-        - label: 🚨 High (Major feature not working)  
+        - label: 🚨 High (Major feature not working)
         - label: ⚠️ Medium (Minor feature issue)
-        - label: 📝 Low (Cosmetic/Enhancement) 
+        - label: 📝 Low (Cosmetic/Enhancement)

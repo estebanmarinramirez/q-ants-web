@@ -12,8 +12,8 @@ import MainLayout from './layouts/MainLayout.vue'
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { 
-      path: '/', 
+    {
+      path: '/',
       component: MainLayout,
       children: [
         { path: '', name: 'home', component: () => import('./views/Home.vue') },
@@ -22,10 +22,10 @@ const router = createRouter({
         { path: 'portfolio', name: 'portfolio', component: () => import('./views/Portfolio.vue') },
         { path: 'tasks', name: 'tasks', component: () => import('./views/Tasks.vue') },
         { path: 'recipes', name: 'recipes', component: () => import('./views/Recipes.vue') },
-        { path: 'config', name: 'config', component: () => import('./views/Config.vue') }
-      ]
-    }
-  ]
+        { path: 'config', name: 'config', component: () => import('./views/Config.vue') },
+      ],
+    },
+  ],
 })
 
 const app = createApp(App)
@@ -38,9 +38,9 @@ app.use(PrimeVue, {
     options: {
       prefix: 'p',
       darkModeSelector: '.dark',
-      cssLayer: false
-    }
-  }
+      cssLayer: false,
+    },
+  },
 })
 
 app.mount('#app')

@@ -1,5 +1,5 @@
 <script setup>
-// App now uses router-view for navigation
+  // App now uses router-view for navigation
 </script>
 
 <template>

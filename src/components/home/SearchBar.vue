@@ -1,13 +1,13 @@
 <script setup>
-import { ref } from 'vue'
-import { Search } from 'lucide-vue-next'
+  import { ref } from 'vue'
+  import { Search } from 'lucide-vue-next'
 
-const searchQuery = ref('')
-const emit = defineEmits(['search'])
+  const searchQuery = ref('')
+  const emit = defineEmits(['search'])
 
-const handleSearch = () => {
-  emit('search', searchQuery.value)
-}
+  const handleSearch = () => {
+    emit('search', searchQuery.value)
+  }
 </script>
 
 <template>

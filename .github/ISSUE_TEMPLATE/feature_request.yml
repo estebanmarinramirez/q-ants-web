@@ -1,7 +1,7 @@
 name: ✨ Feature Request
 description: Suggest a new feature for the Q-Ants application
-title: "✨ [Feature]: "
-labels: ["enhancement", "needs-triage"]
+title: '✨ [Feature]: '
+labels: ['enhancement', 'needs-triage']
 assignees:
   - estebanmarinramirez
 
@@ -10,9 +10,9 @@ body:
     attributes:
       value: |
         ## Thanks for suggesting a feature! 🚀
-        
+
         Please fill out the sections below to help us understand your feature request.
-        
+
   - type: checkboxes
     id: existing-features
     attributes:
@@ -21,7 +21,7 @@ body:
       options:
         - label: I have searched existing features and issues
           required: true
-        
+
   - type: dropdown
     id: component
     attributes:
@@ -41,7 +41,7 @@ body:
         - Other
     validations:
       required: true
-      
+
   - type: textarea
     id: problem
     attributes:
@@ -50,7 +50,7 @@ body:
       placeholder: Describe the problem or pain point this feature would address...
     validations:
       required: true
-      
+
   - type: textarea
     id: solution
     attributes:
@@ -59,65 +59,65 @@ body:
       placeholder: Clearly describe your proposed feature...
     validations:
       required: true
-      
+
   - type: textarea
     id: alternatives
     attributes:
       label: Alternative Solutions
       description: Have you considered any alternative approaches?
       placeholder: Describe any alternative solutions you've considered...
-      
+
   - type: dropdown
     id: primevue-component
     attributes:
       label: PrimeVue Component
       description: Could this feature leverage existing PrimeVue components?
       options:
-        - "Not applicable"
-        - "DataTable"
-        - "Chart"
-        - "Menu/Sidebar"
-        - "TabView"
-        - "Dialog"
-        - "Toast/Messages"
-        - "FileUpload"
-        - "MultiSelect"
-        - "Calendar"
-        - "TreeTable"
-        - "Panel"
-        - "Other PrimeVue component"
-        
+        - 'Not applicable'
+        - 'DataTable'
+        - 'Chart'
+        - 'Menu/Sidebar'
+        - 'TabView'
+        - 'Dialog'
+        - 'Toast/Messages'
+        - 'FileUpload'
+        - 'MultiSelect'
+        - 'Calendar'
+        - 'TreeTable'
+        - 'Panel'
+        - 'Other PrimeVue component'
+
   - type: textarea
     id: mockups
     attributes:
       label: Mockups/Wireframes
       description: If applicable, add mockups or wireframes
       placeholder: Paste images or links to designs here...
-      
+
   - type: dropdown
     id: priority
     attributes:
       label: Priority Level
       description: How important is this feature to you?
       options:
-        - "🔥 High (Critical for workflow)"
-        - "⚠️ Medium (Would be very helpful)"
-        - "📝 Low (Nice to have)"
+        - '🔥 High (Critical for workflow)'
+        - '⚠️ Medium (Would be very helpful)'
+        - '📝 Low (Nice to have)'
     validations:
       required: true
-      
+
   - type: dropdown
     id: effort
     attributes:
       label: Implementation Effort (estimate)
       description: How complex do you think this feature would be to implement?
       options:
-        - "🟢 Low (Few hours)"
-        - "🟡 Medium (1-2 days)"  
-        - "🟠 High (1+ weeks)"
-        - "🔴 Very High (Major refactor)"
-        - "❓ Unknown"
-        
+        - '🟢 Low (Few hours)'
+        - '🟡 Medium (1-2 days)'
+        - '🟠 High (1+ weeks)'
+        - '🔴 Very High (Major refactor)'
+        - '❓ Unknown'
+
   - type: checkboxes
     id: contribution
     attributes:
@@ -125,4 +125,4 @@ body:
       options:
         - label: I would be willing to help implement this feature
         - label: I can provide additional mockups/designs
-        - label: I can help with testing this feature 
+        - label: I can help with testing this feature

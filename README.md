@@ -26,17 +26,17 @@ Q-Ants is a professional-grade financial analysis interface that enables sophist
 
 ### Tech Stack
 
-| Category | Technology | Version | Purpose |
-|----------|------------|---------|---------|
-| **Framework** | Vue.js | 3.4+ | Progressive web framework |
-| **UI Library** | PrimeVue | 4.3.4 | Enterprise UI components |
-| **Styling** | Tailwind CSS | 3.4+ | Utility-first CSS framework |
-| **Build Tool** | Vite | 5.1+ | Next-generation frontend tooling |
-| **State Management** | Pinia | 2.1+ | Vue state management |
-| **Router** | Vue Router | 4.3+ | Single-page application routing |
-| **Charts** | Chart.js | 4.4+ | Data visualization library |
-| **Icons** | Lucide Vue | Latest | Beautiful icon system |
-| **Language** | TypeScript | 5.x | Type-safe JavaScript |
+| Category             | Technology   | Version | Purpose                          |
+| -------------------- | ------------ | ------- | -------------------------------- |
+| **Framework**        | Vue.js       | 3.4+    | Progressive web framework        |
+| **UI Library**       | PrimeVue     | 4.3.4   | Enterprise UI components         |
+| **Styling**          | Tailwind CSS | 3.4+    | Utility-first CSS framework      |
+| **Build Tool**       | Vite         | 5.1+    | Next-generation frontend tooling |
+| **State Management** | Pinia        | 2.1+    | Vue state management             |
+| **Router**           | Vue Router   | 4.3+    | Single-page application routing  |
+| **Charts**           | Chart.js     | 4.4+    | Data visualization library       |
+| **Icons**            | Lucide Vue   | Latest  | Beautiful icon system            |
+| **Language**         | TypeScript   | 5.x     | Type-safe JavaScript             |
 
 ### Project Structure
 
@@ -70,17 +70,20 @@ q-ants-web/
 ### Installation
 
 1. **Clone the repository:**
+
    ```bash
    git clone https://github.com/estebanmarinramirez/q-ants-web.git
    cd q-ants-web
    ```
 
 2. **Install dependencies:**
+
    ```bash
    npm install
    ```
 
 3. **Start development server:**
+
    ```bash
    npm run dev
    ```
@@ -90,14 +93,14 @@ q-ants-web/
 
 ### Available Scripts
 
-| Script | Command | Description |
-|--------|---------|-------------|
-| **Development** | `npm run dev` | Start Vite dev server with HMR |
-| **Build** | `npm run build` | Create production build |
-| **Preview** | `npm run preview` | Preview production build locally |
-| **Lint** | `npm run lint` | Run ESLint for code quality |
-| **Type Check** | `npm run type-check` | Run TypeScript compiler checks |
-| **Test** | `npm run test` | Run unit tests with Vitest |
+| Script          | Command              | Description                      |
+| --------------- | -------------------- | -------------------------------- |
+| **Development** | `npm run dev`        | Start Vite dev server with HMR   |
+| **Build**       | `npm run build`      | Create production build          |
+| **Preview**     | `npm run preview`    | Preview production build locally |
+| **Lint**        | `npm run lint`       | Run ESLint for code quality      |
+| **Type Check**  | `npm run type-check` | Run TypeScript compiler checks   |
+| **Test**        | `npm run test`       | Run unit tests with Vitest       |
 | **Performance** | `npm run lighthouse` | Run Lighthouse performance audit |
 
 ## 🎨 Design System
@@ -106,14 +109,14 @@ q-ants-web/
 
 ```css
 /* Primary Blue Palette */
---primary-50: #eff6ff;   /* Lightest blue */
---primary-500: #3b82f6;  /* Main brand blue */
---primary-900: #1e3a8a;  /* Darkest blue */
+--primary-50: #eff6ff; /* Lightest blue */
+--primary-500: #3b82f6; /* Main brand blue */
+--primary-900: #1e3a8a; /* Darkest blue */
 
 /* Surface Colors */
---surface-0: #ffffff;    /* Pure white */
---surface-50: #f8fafc;   /* Light gray */
---surface-900: #0f172a;  /* Dark surface */
+--surface-0: #ffffff; /* Pure white */
+--surface-50: #f8fafc; /* Light gray */
+--surface-900: #0f172a; /* Dark surface */
 ```
 
 ### Component Hierarchy

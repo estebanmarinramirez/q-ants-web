@@ -1,7 +1,7 @@
 name: 🔄 PrimeVue Component Migration
 description: Track migration of components to PrimeVue
-title: "🔄 [Migration]: "
-labels: ["primevue-migration", "refactor"]
+title: '🔄 [Migration]: '
+labels: ['primevue-migration', 'refactor']
 assignees:
   - estebanmarinramirez
 
@@ -10,75 +10,75 @@ body:
     attributes:
       value: |
         ## PrimeVue Component Migration Task 🔄
-        
+
         Use this template to track the migration of existing components to PrimeVue equivalents.
-        
+
   - type: dropdown
     id: current-component
     attributes:
       label: Current Component
       description: Which component needs to be migrated?
       options:
-        - "Sidebar.vue"
-        - "MainPanel.vue"
-        - "ChatPanel.vue"
-        - "Custom Chart Component"
-        - "Custom Table Component"
-        - "Custom Form Component"
-        - "Custom Button Component"
-        - "Custom Modal Component"
-        - "Other"
+        - 'Sidebar.vue'
+        - 'MainPanel.vue'
+        - 'ChatPanel.vue'
+        - 'Custom Chart Component'
+        - 'Custom Table Component'
+        - 'Custom Form Component'
+        - 'Custom Button Component'
+        - 'Custom Modal Component'
+        - 'Other'
     validations:
       required: true
-      
+
   - type: dropdown
     id: primevue-target
     attributes:
       label: Target PrimeVue Component
       description: Which PrimeVue component will replace it?
       options:
-        - "Menu"
-        - "Sidebar"
-        - "TabView"
-        - "Panel"
-        - "DataTable"
-        - "Chart"
-        - "Dialog"
-        - "Button"
-        - "InputText"
-        - "Dropdown"
-        - "MultiSelect"
-        - "Calendar"
-        - "FileUpload"
-        - "Toast"
-        - "Message"
-        - "TreeTable"
-        - "Splitter"
-        - "Card"
-        - "Toolbar"
-        - "Breadcrumb"
-        - "Avatar"
-        - "Badge"
-        - "Tag"
-        - "ProgressBar"
-        - "Skeleton"
-        - "Other"
+        - 'Menu'
+        - 'Sidebar'
+        - 'TabView'
+        - 'Panel'
+        - 'DataTable'
+        - 'Chart'
+        - 'Dialog'
+        - 'Button'
+        - 'InputText'
+        - 'Dropdown'
+        - 'MultiSelect'
+        - 'Calendar'
+        - 'FileUpload'
+        - 'Toast'
+        - 'Message'
+        - 'TreeTable'
+        - 'Splitter'
+        - 'Card'
+        - 'Toolbar'
+        - 'Breadcrumb'
+        - 'Avatar'
+        - 'Badge'
+        - 'Tag'
+        - 'ProgressBar'
+        - 'Skeleton'
+        - 'Other'
     validations:
       required: true
-      
+
   - type: dropdown
     id: migration-phase
     attributes:
       label: Migration Phase
       description: Which phase of the migration roadmap is this part of?
       options:
-        - "Phase 1: Navigation & Layout (Week 1)"
-        - "Phase 2: Data Visualization (Week 2)"
-        - "Phase 3: Forms & Interactions (Week 3)"
-        - "Phase 4: Advanced Features (Week 4)"
+        - 'Phase 1: Navigation & Layout (Week 1)'
+        - 'Phase 2: Data Visualization (Week 2)'
+        - 'Phase 3: Forms & Interactions (Week 3)'
+        - 'Phase 4: Advanced Features (Week 4)'
     validations:
       required: true
-      
+
   - type: textarea
     id: current-functionality
     attributes:
@@ -87,7 +87,7 @@ body:
       placeholder: List all current features and behaviors...
     validations:
       required: true
-      
+
   - type: textarea
     id: migration-plan
     attributes:
@@ -109,58 +109,58 @@ body:
         6. Update parent components
     validations:
       required: true
-      
+
   - type: textarea
     id: challenges
     attributes:
       label: Expected Challenges
       description: What challenges do you anticipate during migration?
       placeholder: List potential issues or complex migration aspects...
-      
+
   - type: textarea
     id: dependencies
     attributes:
       label: Dependencies
       description: List any components or features that depend on this component
       placeholder: Which other components will need to be updated after this migration?
-      
+
   - type: checkboxes
     id: sakai-reference
     attributes:
       label: Sakai Template Reference
       description: Can we use Sakai Vue template as a reference for this migration?
       options:
-        - label: "✅ Sakai has a similar component we can reference"
-        - label: "❓ Need to check Sakai template for examples"
-        - label: "❌ This is Q-Ants specific, no Sakai equivalent"
-        
+        - label: '✅ Sakai has a similar component we can reference'
+        - label: '❓ Need to check Sakai template for examples'
+        - label: '❌ This is Q-Ants specific, no Sakai equivalent'
+
   - type: checkboxes
     id: tasks
     attributes:
       label: Migration Tasks
       description: Track progress on this migration
       options:
-        - label: "📋 Research PrimeVue component documentation"
-        - label: "📋 Study Sakai template implementation (if applicable)"
-        - label: "📋 Create new component file"
-        - label: "📋 Implement basic functionality"
-        - label: "📋 Apply Q-Ants theming"
-        - label: "📋 Migrate props and events"
-        - label: "📋 Update parent components"
-        - label: "📋 Write/update tests"
-        - label: "📋 Update documentation"
-        - label: "📋 Test in different browsers"
-        - label: "📋 Test responsive design"
-        - label: "📋 Code review"
-        
+        - label: '📋 Research PrimeVue component documentation'
+        - label: '📋 Study Sakai template implementation (if applicable)'
+        - label: '📋 Create new component file'
+        - label: '📋 Implement basic functionality'
+        - label: '📋 Apply Q-Ants theming'
+        - label: '📋 Migrate props and events'
+        - label: '📋 Update parent components'
+        - label: '📋 Write/update tests'
+        - label: '📋 Update documentation'
+        - label: '📋 Test in different browsers'
+        - label: '📋 Test responsive design'
+        - label: '📋 Code review'
+
   - type: dropdown
     id: priority
     attributes:
       label: Priority
       description: How urgent is this migration?
       options:
-        - "🔥 High (Blocking other work)"
-        - "⚠️ Medium (Part of current sprint)"
-        - "📝 Low (Future enhancement)"
+        - '🔥 High (Blocking other work)'
+        - '⚠️ Medium (Part of current sprint)'
+        - '📝 Low (Future enhancement)'
     validations:
-      required: true 
+      required: true

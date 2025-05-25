@@ -1,39 +1,43 @@
 <script setup>
-import { ref } from 'vue'
+  import { ref } from 'vue'
 
-const messages = ref([
-  {
-    id: 1,
-    type: 'bot',
-    content: 'Hello! I\'m your Q-Ants assistant. How can I help you with your financial analysis today?',
-    timestamp: new Date()
-  }
-])
+  const messages = ref([
+    {
+      id: 1,
+      type: 'bot',
+      content:
+        "Hello! I'm your Q-Ants assistant. How can I help you with your financial analysis today?",
+      timestamp: new Date(),
+    },
+  ])
 
-const newMessage = ref('')
+  const newMessage = ref('')
 
-const sendMessage = () => {
-  if (!newMessage.value.trim()) return
+  const sendMessage = () => {
+    if (!newMessage.value.trim()) return
 
-  messages.value.push({
-    id: messages.value.length + 1,
-    type: 'user',
-    content: newMessage.value,
-    timestamp: new Date()
-  })
-
-  // Simulate bot response
-  setTimeout(() => {
     messages.value.push({
       id: messages.value.length + 1,
-      type: 'bot',
-      content: 'I understand you want to discuss: "' + newMessage.value + '". Let me analyze that for you...',
-      timestamp: new Date()
+      type: 'user',
+      content: newMessage.value,
+      timestamp: new Date(),
     })
-  }, 1000)
 
-  newMessage.value = ''
-}
+    // Simulate bot response
+    setTimeout(() => {
+      messages.value.push({
+        id: messages.value.length + 1,
+        type: 'bot',
+        content:
+          'I understand you want to discuss: "' +
+          newMessage.value +
+          '". Let me analyze that for you...',
+        timestamp: new Date(),
+      })
+    }, 1000)
+
+    newMessage.value = ''
+  }
 </script>
 
 <template>
@@ -49,20 +53,19 @@ const sendMessage = () => {
       <div
         v-for="message in messages"
         :key="message.id"
-        :class="[
-          'flex',
-          message.type === 'user' ? 'justify-end' : 'justify-start'
-        ]"
+        :class="['flex', message.type === 'user' ? 'justify-end' : 'justify-start']"
       >
         <div
           :class="[
             'max-w-xs lg:max-w-md px-4 py-2 rounded-lg',
             message.type === 'user'
               ? 'bg-blue-500 text-white'
-              : 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white'
+              : 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white',
           ]"
         >
-          <p class="text-sm">{{ message.content }}</p>
+          <p class="text-sm">
+            {{ message.content }}
+          </p>
           <p class="text-xs opacity-70 mt-1">
             {{ message.timestamp.toLocaleTimeString() }}
           </p>
@@ -72,7 +75,10 @@ const sendMessage = () => {
 
     <!-- Input Area -->
     <div class="p-6 border-t border-gray-200 dark:border-gray-700">
-      <form @submit.prevent="sendMessage" class="flex space-x-3">
+      <form
+        class="flex space-x-3"
+        @submit.prevent="sendMessage"
+      >
         <InputText
           v-model="newMessage"
           placeholder="Type your message..."
@@ -87,4 +93,4 @@ const sendMessage = () => {
       </form>
     </div>
   </div>
-</template> 
+</template>

@@ -8,17 +8,17 @@ export default defineConfig({
   plugins: [
     vue(),
     Components({
-      resolvers: [PrimeVueResolver()]
-    })
+      resolvers: [PrimeVueResolver()],
+    }),
   ],
   build: {
     rollupOptions: {
       output: {
         manualChunks: {
-          'primevue': ['primevue'],
-          'vendor': ['vue', 'vue-router', 'pinia']
-        }
-      }
-    }
-  }
+          primevue: ['primevue'],
+          vendor: ['vue', 'vue-router', 'pinia'],
+        },
+      },
+    },
+  },
 })

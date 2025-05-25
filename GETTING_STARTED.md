@@ -37,19 +37,19 @@ export default defineConfig({
   plugins: [
     vue(),
     Components({
-      resolvers: [PrimeVueResolver()]
-    })
+      resolvers: [PrimeVueResolver()],
+    }),
   ],
   build: {
     rollupOptions: {
       output: {
         manualChunks: {
-          'primevue': ['primevue'],
-          'vendor': ['vue', 'vue-router', 'pinia']
-        }
-      }
-    }
-  }
+          primevue: ['primevue'],
+          vendor: ['vue', 'vue-router', 'pinia'],
+        },
+      },
+    },
+  },
 })
 ```
 
@@ -73,7 +73,7 @@ const router = createRouter({
     { path: '/chat', component: () => import('./views/Chat.vue') },
     { path: '/analysis', component: () => import('./views/Analysis.vue') },
     // Add more routes as needed
-  ]
+  ],
 })
 
 const app = createApp(App)
@@ -86,9 +86,9 @@ app.use(PrimeVue, {
     options: {
       prefix: 'p',
       darkModeSelector: '.dark',
-      cssLayer: false
-    }
-  }
+      cssLayer: false,
+    },
+  },
 })
 
 app.mount('#app')
@@ -101,10 +101,7 @@ Modify `tailwind.config.js` to work alongside PrimeVue:
 ```javascript
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
-  ],
+  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   darkMode: 'class',
   theme: {
     extend: {
@@ -112,7 +109,7 @@ export default {
         // Q-Ants brand colors (matching your logo)
         primary: {
           50: '#eff6ff',
-          100: '#dbeafe', 
+          100: '#dbeafe',
           200: '#bfdbfe',
           300: '#93c5fd',
           400: '#60a5fa',
@@ -134,13 +131,13 @@ export default {
           700: '#334155',
           800: '#1e293b',
           900: '#0f172a',
-          950: '#020617'
-        }
+          950: '#020617',
+        },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace']
-      }
+        mono: ['JetBrains Mono', 'monospace'],
+      },
     },
   },
   plugins: [],
@@ -153,62 +150,69 @@ Let's migrate the Sidebar to use PrimeVue Menu. Create `src/components/layout/Pr
 
 ```vue
 <script setup>
-import { ref } from 'vue'
-import Menu from 'primevue/menu'
-import { 
-  Home,
-  MessageSquare,
-  LineChart,
-  Briefcase,
-  Timer,
-  BookOpen,
-  Settings,
-  LogOut
-} from 'lucide-vue-next'
+  import { ref } from 'vue'
+  import Menu from 'primevue/menu'
+  import {
+    Home,
+    MessageSquare,
+    LineChart,
+    Briefcase,
+    Timer,
+    BookOpen,
+    Settings,
+    LogOut,
+  } from 'lucide-vue-next'
 
-const props = defineProps({
-  collapsed: {
-    type: Boolean,
-    default: false
-  }
-})
+  const props = defineProps({
+    collapsed: {
+      type: Boolean,
+      default: false,
+    },
+  })
 
-const emit = defineEmits(['toggle'])
+  const emit = defineEmits(['toggle'])
 
-const menuItems = ref([
-  {
-    label: 'Main',
-    items: [
-      { label: 'Home', icon: Home, route: '/' },
-      { label: 'Q-ANTS', icon: MessageSquare, route: '/chat' },
-      { label: 'Analysis/Tools', icon: LineChart, route: '/analysis' },
-      { label: 'Portfolio', icon: Briefcase, route: '/portfolio' },
-      { label: 'Jobs/Tasks', icon: Timer, route: '/tasks' }
-    ]
-  },
-  {
-    separator: true
-  },
-  {
-    label: 'Settings',
-    items: [
-      { label: 'Recipes', icon: BookOpen, route: '/recipes' },
-      { label: 'Config', icon: Settings, route: '/config' },
-      { label: 'Logout', icon: LogOut, route: '/logout' }
-    ]
-  }
-])
+  const menuItems = ref([
+    {
+      label: 'Main',
+      items: [
+        { label: 'Home', icon: Home, route: '/' },
+        { label: 'Q-ANTS', icon: MessageSquare, route: '/chat' },
+        { label: 'Analysis/Tools', icon: LineChart, route: '/analysis' },
+        { label: 'Portfolio', icon: Briefcase, route: '/portfolio' },
+        { label: 'Jobs/Tasks', icon: Timer, route: '/tasks' },
+      ],
+    },
+    {
+      separator: true,
+    },
+    {
+      label: 'Settings',
+      items: [
+        { label: 'Recipes', icon: BookOpen, route: '/recipes' },
+        { label: 'Config', icon: Settings, route: '/config' },
+        { label: 'Logout', icon: LogOut, route: '/logout' },
+      ],
+    },
+  ])
 </script>
 
 <template>
-  <div 
+  <div
     class="h-full bg-surface-0 dark:bg-surface-900 border-r border-surface-200 dark:border-surface-700 transition-all duration-300 flex flex-col"
     :class="{ 'w-[280px]': !collapsed, 'w-[60px]': collapsed }"
   >
     <!-- Header with logo and toggle -->
-    <div class="p-4 flex items-center justify-between border-b border-surface-200 dark:border-surface-700">
-      <img v-if="!collapsed" src="/logo.svg" alt="Q-Ants" class="h-8" />
-      <Button 
+    <div
+      class="p-4 flex items-center justify-between border-b border-surface-200 dark:border-surface-700"
+    >
+      <img
+        v-if="!collapsed"
+        src="/logo.svg"
+        alt="Q-Ants"
+        class="h-8"
+      />
+      <Button
         @click="emit('toggle')"
         icon="pi pi-bars"
         severity="secondary"
@@ -219,27 +223,40 @@ const menuItems = ref([
 
     <!-- Navigation Menu -->
     <div class="flex-1 overflow-y-auto p-2">
-      <Menu 
-        :model="menuItems" 
+      <Menu
+        :model="menuItems"
         class="w-full border-none bg-transparent"
       >
         <template #item="{ item }">
-          <router-link 
-            v-if="item.route" 
-            :to="item.route" 
+          <router-link
+            v-if="item.route"
+            :to="item.route"
             class="flex items-center p-3 rounded-lg text-surface-700 dark:text-surface-300 hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-colors"
           >
-            <component :is="item.icon" class="w-5 h-5" />
-            <span v-if="!collapsed" class="ml-3">{{ item.label }}</span>
+            <component
+              :is="item.icon"
+              class="w-5 h-5"
+            />
+            <span
+              v-if="!collapsed"
+              class="ml-3"
+              >{{ item.label }}</span
+            >
           </router-link>
         </template>
       </Menu>
     </div>
 
     <!-- Version info -->
-    <div class="p-4 text-xs text-surface-500 flex items-center border-t border-surface-200 dark:border-surface-700">
+    <div
+      class="p-4 text-xs text-surface-500 flex items-center border-t border-surface-200 dark:border-surface-700"
+    >
       <i class="pi pi-info-circle"></i>
-      <span v-if="!collapsed" class="ml-2">v1.0.0</span>
+      <span
+        v-if="!collapsed"
+        class="ml-2"
+        >v1.0.0</span
+      >
     </div>
   </div>
 </template>
@@ -333,4 +350,4 @@ npm run lint
 
 ---
 
-**Ready to start?** Run the commands in Step 1 and follow the guide! 🚀 
+**Ready to start?** Run the commands in Step 1 and follow the guide! 🚀

@@ -1,55 +1,60 @@
 <script setup>
-import { ref } from 'vue'
-import Button from 'primevue/button'
-import InputText from 'primevue/inputtext'
-import ScrollPanel from 'primevue/scrollpanel'
-import { Send, MessageSquare } from 'lucide-vue-next'
+  import { ref } from 'vue'
+  import Button from 'primevue/button'
+  import InputText from 'primevue/inputtext'
+  import ScrollPanel from 'primevue/scrollpanel'
+  import { Send, MessageSquare } from 'lucide-vue-next'
 
-const messages = ref([
-  {
-    id: 1,
-    agent: 'analyst_ant',
-    content: 'Welcome to Q-Ants! How can I assist you with your financial analysis today?',
-    timestamp: new Date().toISOString()
-  },
-  {
-    id: 2,
-    agent: 'analyst_ant',
-    content: 'I can help you with portfolio analysis, risk assessment, market research, and financial planning. What would you like to explore?',
-    timestamp: new Date(Date.now() - 60000).toISOString()
-  }
-])
+  const messages = ref([
+    {
+      id: 1,
+      agent: 'analyst_ant',
+      content: 'Welcome to Q-Ants! How can I assist you with your financial analysis today?',
+      timestamp: new Date().toISOString(),
+    },
+    {
+      id: 2,
+      agent: 'analyst_ant',
+      content:
+        'I can help you with portfolio analysis, risk assessment, market research, and financial planning. What would you like to explore?',
+      timestamp: new Date(Date.now() - 60000).toISOString(),
+    },
+  ])
 
-const newMessage = ref('')
+  const newMessage = ref('')
 
-const sendMessage = () => {
-  if (!newMessage.value.trim()) return
+  const sendMessage = () => {
+    if (!newMessage.value.trim()) return
 
-  messages.value.push({
-    id: messages.value.length + 1,
-    agent: 'user',
-    content: newMessage.value,
-    timestamp: new Date().toISOString()
-  })
-
-  // Simulate Q-Ants response
-  setTimeout(() => {
     messages.value.push({
       id: messages.value.length + 1,
-      agent: 'analyst_ant',
-      content: 'I understand your request. Let me analyze that for you...',
-      timestamp: new Date().toISOString()
+      agent: 'user',
+      content: newMessage.value,
+      timestamp: new Date().toISOString(),
     })
-  }, 1000)
 
-  newMessage.value = ''
-}
+    // Simulate Q-Ants response
+    setTimeout(() => {
+      messages.value.push({
+        id: messages.value.length + 1,
+        agent: 'analyst_ant',
+        content: 'I understand your request. Let me analyze that for you...',
+        timestamp: new Date().toISOString(),
+      })
+    }, 1000)
+
+    newMessage.value = ''
+  }
 </script>
 
 <template>
-  <aside class="h-full bg-surface-0 dark:bg-surface-900 border-l border-surface-200 dark:border-surface-700 flex flex-col">
+  <aside
+    class="h-full bg-surface-0 dark:bg-surface-900 border-l border-surface-200 dark:border-surface-700 flex flex-col"
+  >
     <!-- Chat Header -->
-    <div class="p-4 border-b border-surface-200 dark:border-surface-700 bg-surface-50 dark:bg-surface-800">
+    <div
+      class="p-4 border-b border-surface-200 dark:border-surface-700 bg-surface-50 dark:bg-surface-800"
+    >
       <div class="flex items-center space-x-2">
         <MessageSquare class="w-5 h-5 text-primary-600 dark:text-primary-400" />
         <h2 class="text-lg font-semibold text-surface-900 dark:text-surface-100">Q-Ants Chat</h2>
@@ -58,7 +63,10 @@ const sendMessage = () => {
     </div>
 
     <!-- Messages Container -->
-    <ScrollPanel class="flex-1 p-4" style="width: 100%; height: 100%;">
+    <ScrollPanel
+      class="flex-1 p-4"
+      style="width: 100%; height: 100%"
+    >
       <div class="space-y-4">
         <div
           v-for="message in messages"
@@ -67,12 +75,14 @@ const sendMessage = () => {
             'max-w-[85%] rounded-xl p-3 shadow-sm',
             message.agent === 'user'
               ? 'bg-primary-500 text-white ml-auto'
-              : 'bg-surface-100 dark:bg-surface-800 text-surface-900 dark:text-surface-100'
+              : 'bg-surface-100 dark:bg-surface-800 text-surface-900 dark:text-surface-100',
           ]"
         >
           <div class="flex items-start space-x-2">
             <div class="flex-1">
-              <p class="text-sm leading-relaxed">{{ message.content }}</p>
+              <p class="text-sm leading-relaxed">
+                {{ message.content }}
+              </p>
               <span class="text-xs opacity-70 mt-2 block">
                 {{ new Date(message.timestamp).toLocaleTimeString() }}
               </span>
@@ -83,8 +93,13 @@ const sendMessage = () => {
     </ScrollPanel>
 
     <!-- Chat Input -->
-    <div class="p-4 border-t border-surface-200 dark:border-surface-700 bg-surface-50 dark:bg-surface-800">
-      <form @submit.prevent="sendMessage" class="flex space-x-2">
+    <div
+      class="p-4 border-t border-surface-200 dark:border-surface-700 bg-surface-50 dark:bg-surface-800"
+    >
+      <form
+        class="flex space-x-2"
+        @submit.prevent="sendMessage"
+      >
         <InputText
           v-model="newMessage"
           placeholder="Ask Q-Ants anything..."

@@ -8,7 +8,9 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Breadcrumb: typeof import('./src/components/layout/Breadcrumb.vue')['default']
     Button: typeof import('primevue/button')['default']
+    Card: typeof import('primevue/card')['default']
     ChatPanel: typeof import('./src/components/layout/ChatPanel.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     InputText: typeof import('primevue/inputtext')['default']
@@ -20,6 +22,10 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     SearchBar: typeof import('./src/components/home/SearchBar.vue')['default']
     Sidebar: typeof import('./src/components/layout/Sidebar.vue')['default']
+    TopToolbar: typeof import('./src/components/layout/TopToolbar.vue')['default']
     UpdateCard: typeof import('./src/components/home/UpdateCard.vue')['default']
+  }
+  export interface ComponentCustomProperties {
+    Ripple: typeof import('primevue/ripple')['default']
   }
 }
